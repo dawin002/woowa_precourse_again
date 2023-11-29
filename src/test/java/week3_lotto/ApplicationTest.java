@@ -1,4 +1,4 @@
-package lotto;
+package week3_lotto;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;

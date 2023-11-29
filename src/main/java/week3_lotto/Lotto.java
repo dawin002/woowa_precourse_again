@@ -1,4 +1,4 @@
-package lotto;
+package week3_lotto;
 
 import java.util.List;
 
