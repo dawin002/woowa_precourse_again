@@ -1,4 +1,4 @@
-package week1_baseball.model;
+package week1_baseball.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
