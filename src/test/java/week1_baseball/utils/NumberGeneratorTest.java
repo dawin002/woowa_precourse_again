@@ -1,8 +1,8 @@
-package week1_baseball.model;
+package week1_baseball.utils;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import week1_baseball.service.NumberGenerator;
+import week1_baseball.utils.NumberGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
