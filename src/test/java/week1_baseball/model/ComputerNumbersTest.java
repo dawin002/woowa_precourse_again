@@ -14,7 +14,7 @@ class ComputerNumbersTest {
 
     @BeforeEach
     void setUp() {
-        this.computerNumbers = new ComputerNumbers();
+        this.computerNumbers = new ComputerNumbers(List.of(1, 2, 3));
     }
 
     @DisplayName("3개의 숫자를 가진 정답 객체 생성")
