@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static week1_baseball.message.ErrorMessages.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -13,7 +14,7 @@ class ComputerNumbersTest {
     @Test
     void computerNumbersInitializedByGivenNumbers() {
         // given
-        List<Integer> givenNumbers = List.of(1,2,3);
+        List<Integer> givenNumbers = List.of(1, 2, 3);
 
         // when
         ComputerNumbers computerNumbers = new ComputerNumbers(givenNumbers);
@@ -28,36 +29,36 @@ class ComputerNumbersTest {
     @Test
     void validateComputerNumbersSize() {
         // given
-        List<Integer> givenNumbers = List.of(1,2);
+        List<Integer> givenNumbers = List.of(1, 2);
 
         // when then
         assertThatThrownBy(() -> new ComputerNumbers(givenNumbers))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("정답 숫자가 3자리가 아닙니다.");
+                .hasMessage(WRONG_SIZE_ERROR.getComputerMessage());
     }
 
     @DisplayName("정답 숫자에 0이 포함된 경우 예외 처리")
     @Test
     void validateComputerNumbersNotContainsZero() {
         // given
-        List<Integer> givenNumbers = List.of(0,1,2);
+        List<Integer> givenNumbers = List.of(0, 1, 2);
 
         // when then
         assertThatThrownBy(() -> new ComputerNumbers(givenNumbers))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("1~9 사이가 아닌 숫자가 포함되었습니다.");
+                .hasMessage(HAS_ZERO_ERROR.getComputerMessage());
     }
 
     @DisplayName("정답 숫자에 중복이 존재하는 경우 예외 처리")
     @Test
     void validateComputerNumbersDuplicated() {
         // given
-        List<Integer> givenNumbers = List.of(1,1,2);
+        List<Integer> givenNumbers = List.of(1, 1, 2);
 
         // when then
         assertThatThrownBy(() -> new ComputerNumbers(givenNumbers))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("중복된 숫자가 있습니다.");
+                .hasMessage(DUPLICATED_ERROR.getComputerMessage());
     }
 
 }

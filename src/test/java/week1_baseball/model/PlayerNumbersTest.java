@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static week1_baseball.message.ErrorMessages.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -34,7 +35,7 @@ class PlayerNumbersTest {
         // when then
         assertThatThrownBy(() -> new PlayerNumbers(numbers))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("3자리 숫자가 아닙니다.");
+                .hasMessage(WRONG_SIZE_ERROR.getPlayerMessage());
     }
 
     @DisplayName("숫자 중 0이 포함된 경우 예외 처리")
@@ -46,7 +47,7 @@ class PlayerNumbersTest {
         // when then
         assertThatThrownBy(() -> new PlayerNumbers(numbers))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("1~9 사이가 아닌 숫자가 포함되었습니다.");
+                .hasMessage(HAS_ZERO_ERROR.getPlayerMessage());
     }
 
     @DisplayName("중복된 숫자가 존재하는 경우 예외 처리")
@@ -58,7 +59,7 @@ class PlayerNumbersTest {
         // when then
         assertThatThrownBy(() -> new PlayerNumbers(numbers))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("중복된 숫자가 있습니다.");
+                .hasMessage(DUPLICATED_ERROR.getPlayerMessage());
     }
 
 }

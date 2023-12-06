@@ -4,13 +4,11 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
+import static week1_baseball.message.ErrorMessages.*;
 import static week1_baseball.model.NumberInfo.NUMBERS_SIZE;
 import static week1_baseball.model.NumberInfo.NUMBER_ZERO;
 
 public class PlayerNumbers {
-    private final static String ERROR_MESSAGE_WRONG_SIZE = "3자리 숫자가 아닙니다.";
-    private final static String ERROR_MESSAGE_HAS_ZERO = "1~9 사이가 아닌 숫자가 포함되었습니다.";
-    private final static String ERROR_MESSAGE_DUPLICATED_NUMBERS = "중복된 숫자가 있습니다.";
     private final List<Integer> numbers;
 
     public PlayerNumbers(List<Integer> numbers) {
@@ -26,20 +24,20 @@ public class PlayerNumbers {
 
     private void checkSize(List<Integer> numbers) {
         if (numbers.size() != NUMBERS_SIZE.getNumber()) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_WRONG_SIZE);
+            throw new IllegalArgumentException(WRONG_SIZE_ERROR.getPlayerMessage());
         }
     }
 
     private void checkHasZero(List<Integer> numbers) {
         if (numbers.contains(NUMBER_ZERO.getNumber())) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_HAS_ZERO);
+            throw new IllegalArgumentException(HAS_ZERO_ERROR.getPlayerMessage());
         }
     }
 
     private void checkDuplicate(List<Integer> numbers) {
         HashSet<Integer> numberSet = new HashSet<>(numbers);
         if (numbers.size() != numberSet.size()) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_DUPLICATED_NUMBERS);
+            throw new IllegalArgumentException(DUPLICATED_ERROR.getPlayerMessage());
         }
     }
 
