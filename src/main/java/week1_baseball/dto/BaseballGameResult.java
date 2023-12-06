@@ -1,12 +1,14 @@
 package week1_baseball.dto;
 
-public class CompareResult {
+public class BaseballGameResult {
     private final int strike;
     private final int ball;
+    private final boolean isFullStrike;
 
-    public CompareResult(int strike, int ball) {
+    public BaseballGameResult(int strike, int ball, boolean isFullStrike) {
         this.strike = strike;
         this.ball = ball;
+        this.isFullStrike = isFullStrike;
     }
 
     public int getStrike() {
@@ -15,5 +17,9 @@ public class CompareResult {
 
     public int getBall() {
         return ball;
+    }
+
+    public boolean isFullStrike() {
+        return isFullStrike;
     }
 }
