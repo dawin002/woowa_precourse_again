@@ -1,6 +1,6 @@
 package week1_baseball.message;
 
-public enum ResultMessages {
+public enum ResultMessage {
     STRIKE("스트라이크"),
     BALL("볼"),
     NOTHING("낫싱"),
@@ -8,7 +8,7 @@ public enum ResultMessages {
 
     private final String message;
 
-    ResultMessages(String message) {
+    ResultMessage(String message) {
         this.message = message;
     }
 

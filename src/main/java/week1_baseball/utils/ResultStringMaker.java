@@ -3,7 +3,7 @@ package week1_baseball.utils;
 import week1_baseball.dto.BaseballGameResult;
 
 import static week1_baseball.message.ErrorMessage.NO_MATCH_RESULT_ERROR;
-import static week1_baseball.message.ResultMessages.*;
+import static week1_baseball.message.ResultMessage.*;
 
 public class ResultStringMaker {
     public static String makeString(BaseballGameResult gameResult) {
