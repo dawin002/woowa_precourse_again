@@ -1,43 +1,63 @@
 package week1_baseball.model;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static week1_baseball.model.NumberInfo.*;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class ComputerNumbersTest {
-    private ComputerNumbers computerNumbers;
-
-    @BeforeEach
-    void setUp() {
-        this.computerNumbers = new ComputerNumbers(List.of(1, 2, 3));
-    }
-
-    @DisplayName("3개의 숫자를 가진 정답 객체 생성")
+    @DisplayName("전달된 숫자 리스트로 초기화된 정답 숫자 객체 생성")
     @Test
-    void computerNumbersHas3Numbers() {
-        // given when : setUp()
+    void computerNumbersInitializedByGivenNumbers() {
+        // given
+        List<Integer> givenNumbers = List.of(1,2,3);
+
+        // when
+        ComputerNumbers computerNumbers = new ComputerNumbers(givenNumbers);
 
         // then
-        List<Integer> numbers = computerNumbers.getNumbers();
-        assertThat(numbers.size()).isEqualTo(NUMBERS_SIZE.getNumber());
-    }
-
-    @DisplayName("1~9 범위의 숫자를 가진 정답 객체 생성")
-    @Test
-    void computerNumbersInNumberRangeForm1To9() {
-        // given when : setUp()
-
-        // then
-        List<Integer> numbers = computerNumbers.getNumbers();
-        for (int number : numbers) {
-            assertThat(number).isGreaterThanOrEqualTo(NUMBER_RANGE_START.getNumber());
-            assertThat(number).isLessThanOrEqualTo(NUMBER_RANGE_END.getNumber());
+        for (int number : givenNumbers) {
+            assertThat(computerNumbers.getNumbers()).contains(number);
         }
+    }
+
+    @DisplayName("정답 숫자가 3자리가 아니라면 예외 처리")
+    @Test
+    void validateComputerNumbersSize() {
+        // given
+        List<Integer> givenNumbers = List.of(1,2);
+
+        // when then
+        assertThatThrownBy(() -> new ComputerNumbers(givenNumbers))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("정답 숫자가 3자리가 아닙니다.");
+    }
+
+    @DisplayName("정답 숫자에 0이 포함된 경우 예외 처리")
+    @Test
+    void validateComputerNumbersNotContainsZero() {
+        // given
+        List<Integer> givenNumbers = List.of(0,1,2);
+
+        // when then
+        assertThatThrownBy(() -> new ComputerNumbers(givenNumbers))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("1~9 사이가 아닌 숫자가 포함되었습니다.");
+    }
+
+    @DisplayName("정답 숫자에 중복이 존재하는 경우 예외 처리")
+    @Test
+    void validateComputerNumbersDuplicated() {
+        // given
+        List<Integer> givenNumbers = List.of(1,1,2);
+
+        // when then
+        assertThatThrownBy(() -> new ComputerNumbers(givenNumbers))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("중복된 숫자가 있습니다.");
     }
 
 }
