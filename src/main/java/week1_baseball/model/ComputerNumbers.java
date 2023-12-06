@@ -1,6 +1,6 @@
 package week1_baseball.model;
 
-import week1_baseball.service.NumberGenerator;
+import week1_baseball.utils.NumberGenerator;
 
 import java.util.ArrayList;
 import java.util.Collections;
