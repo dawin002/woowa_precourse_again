@@ -1,6 +1,6 @@
 package week1_baseball.message;
 
-public enum ErrorMessages {
+public enum ErrorMessage {
     ERROR_HEADER("[ERROR] "),
     COMPUTER_TITLE("정답 숫자"),
     PLAYER_TITLE("입력된 숫자"),
@@ -12,7 +12,7 @@ public enum ErrorMessages {
 
     private final String message;
 
-    ErrorMessages(String message) {
+    ErrorMessage(String message) {
         this.message = message;
     }
 
