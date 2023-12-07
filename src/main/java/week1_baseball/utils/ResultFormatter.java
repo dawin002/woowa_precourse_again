@@ -5,8 +5,8 @@ import week1_baseball.dto.BaseballGameResult;
 import static week1_baseball.message.ErrorMessage.NO_MATCH_RESULT_ERROR;
 import static week1_baseball.message.ResultMessage.*;
 
-public class ResultStringMaker {
-    public static String makeString(BaseballGameResult gameResult) {
+public class ResultFormatter {
+    public static String createResultMessage(BaseballGameResult gameResult) {
         if (gameResult.getStrike() == 0 && gameResult.getBall() == 0) {
             return getNothingMessage();
         }
