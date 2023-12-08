@@ -1,6 +1,6 @@
 package week1_baseball.model;
 
-import static week1_baseball.message.ErrorMessage.WRONG_RESTART_NUMBER_ERROR;
+import static week1_baseball.message.ErrorMessage.*;
 
 public class GameRestarter {
     private static final int GAME_RESTART_NUMBER = 1;
@@ -14,7 +14,8 @@ public class GameRestarter {
 
     private void validateNumber(int number) {
         if (number != GAME_RESTART_NUMBER && number != GAME_END_NUMBER) {
-            throw new IllegalArgumentException(WRONG_RESTART_NUMBER_ERROR.getRestartMessage());
+            throw new IllegalArgumentException(RESTART_ERROR_TITLE.getTitle() +
+                    WRONG_RESTART_NUMBER_ERROR.getMessage());
         }
     }
 

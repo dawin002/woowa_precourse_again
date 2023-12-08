@@ -35,7 +35,7 @@ class PlayerNumbersTest {
         // when then
         assertThatThrownBy(() -> new PlayerNumbers(numbers))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(WRONG_SIZE_ERROR.getPlayerMessage());
+                .hasMessage(PLAYER_ERROR_TITLE.getTitle() + WRONG_SIZE_ERROR.getMessage());
     }
 
     @DisplayName("숫자 중 0이 포함된 경우 예외 처리")
@@ -47,7 +47,7 @@ class PlayerNumbersTest {
         // when then
         assertThatThrownBy(() -> new PlayerNumbers(numbers))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(HAS_ZERO_ERROR.getPlayerMessage());
+                .hasMessage(PLAYER_ERROR_TITLE.getTitle() + HAS_ZERO_ERROR.getMessage());
     }
 
     @DisplayName("중복된 숫자가 존재하는 경우 예외 처리")
@@ -59,7 +59,7 @@ class PlayerNumbersTest {
         // when then
         assertThatThrownBy(() -> new PlayerNumbers(numbers))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(DUPLICATED_ERROR.getPlayerMessage());
+                .hasMessage(PLAYER_ERROR_TITLE.getTitle() + DUPLICATED_ERROR.getMessage());
     }
 
 }

@@ -18,14 +18,14 @@ public class ComputerNumbers {
 
     private void validateNumbers(List<Integer> numbers) {
         if (numbers.size() != NUMBERS_SIZE.getNumber()) {
-            throw new IllegalArgumentException(WRONG_SIZE_ERROR.getComputerMessage());
+            throw new IllegalArgumentException(COMPUTER_ERROR_TITLE.getTitle() + WRONG_SIZE_ERROR.getMessage());
         }
         if (numbers.contains(NUMBER_ZERO.getNumber())) {
-            throw new IllegalArgumentException(HAS_ZERO_ERROR.getComputerMessage());
+            throw new IllegalArgumentException(COMPUTER_ERROR_TITLE.getTitle() + HAS_ZERO_ERROR.getMessage());
         }
         HashSet<Integer> numberSet = new HashSet<>(numbers);
         if (numbers.size() != numberSet.size()) {
-            throw new IllegalArgumentException(DUPLICATED_ERROR.getComputerMessage());
+            throw new IllegalArgumentException(COMPUTER_ERROR_TITLE.getTitle() + DUPLICATED_ERROR.getMessage());
         }
     }
 

@@ -3,9 +3,10 @@ package week1_baseball.utils;
 import java.util.ArrayList;
 import java.util.List;
 
+import static week1_baseball.message.ErrorMessage.*;
+
 public class Parser {
-    private static final String ERROR_MESSAGE_INPUT_EMPTY = "입력된 값이 비어 있습니다.";
-    private static final String ERROR_MESSAGE_CAN_NOT_PARSE_INTEGER = "입력된 값에 숫자가 아닌 값이 있습니다.";
+
 
     public static List<Integer> stringToIntList(String input) {
         validateInputNumbers(input);
@@ -24,19 +25,23 @@ public class Parser {
 
     private static void validateInputNumbers(String input) {
         if (input.isEmpty() || input.isBlank()) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_INPUT_EMPTY);
+            throw new IllegalArgumentException(INPUT_ERROR_TITLE.getTitle() +
+                    EMPTY_INPUT_ERROR_MESSAGE.getMessage());
         }
         if (canNotParseInteger(input)) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_CAN_NOT_PARSE_INTEGER);
+            throw new IllegalArgumentException(INPUT_ERROR_TITLE.getTitle() +
+                    CAN_NOT_PARSE_INT_ERROR_MESSAGE.getMessage());
         }
     }
 
     private static void validateInputNumber(String input) {
         if (input.isEmpty() || input.isBlank()) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_INPUT_EMPTY);
+            throw new IllegalArgumentException(INPUT_ERROR_TITLE.getTitle() +
+                    EMPTY_INPUT_ERROR_MESSAGE.getMessage());
         }
         if (canNotParseInteger(input)) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_CAN_NOT_PARSE_INTEGER);
+            throw new IllegalArgumentException(INPUT_ERROR_TITLE.getTitle() +
+                    CAN_NOT_PARSE_INT_ERROR_MESSAGE.getMessage());
         }
     }
 

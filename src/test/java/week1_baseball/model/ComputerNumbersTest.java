@@ -34,7 +34,7 @@ class ComputerNumbersTest {
         // when then
         assertThatThrownBy(() -> new ComputerNumbers(givenNumbers))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(WRONG_SIZE_ERROR.getComputerMessage());
+                .hasMessage(COMPUTER_ERROR_TITLE.getTitle() + WRONG_SIZE_ERROR.getMessage());
     }
 
     @DisplayName("정답 숫자에 0이 포함된 경우 예외 처리")
@@ -46,7 +46,7 @@ class ComputerNumbersTest {
         // when then
         assertThatThrownBy(() -> new ComputerNumbers(givenNumbers))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(HAS_ZERO_ERROR.getComputerMessage());
+                .hasMessage(COMPUTER_ERROR_TITLE.getTitle() + HAS_ZERO_ERROR.getMessage());
     }
 
     @DisplayName("정답 숫자에 중복이 존재하는 경우 예외 처리")
@@ -58,7 +58,7 @@ class ComputerNumbersTest {
         // when then
         assertThatThrownBy(() -> new ComputerNumbers(givenNumbers))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(DUPLICATED_ERROR.getComputerMessage());
+                .hasMessage(COMPUTER_ERROR_TITLE.getTitle() + DUPLICATED_ERROR.getMessage());
     }
 
 }
