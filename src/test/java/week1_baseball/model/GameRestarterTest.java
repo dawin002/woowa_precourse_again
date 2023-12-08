@@ -7,8 +7,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static week1_baseball.message.ErrorMessage.RESTART_ERROR_TITLE;
-import static week1_baseball.message.ErrorMessage.WRONG_RESTART_NUMBER_ERROR;
 
 class GameRestarterTest {
 
