@@ -12,7 +12,7 @@ public class InputView {
         return Console.readLine();
     }
 
-    public String readReplayNumber() {
+    public String readRestartNumber() {
         System.out.println(READ_REPLAY_NUMBER_MESSAGE.getMessage());
         return Console.readLine();
     }
