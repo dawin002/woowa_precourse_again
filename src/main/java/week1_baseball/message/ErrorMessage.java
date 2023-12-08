@@ -4,10 +4,12 @@ public enum ErrorMessage {
     ERROR_HEADER("[ERROR] "),
     COMPUTER_TITLE("정답 숫자"),
     PLAYER_TITLE("입력된 숫자"),
+    RESTART_TITLE("게임 재시작 숫자"),
     WRONG_SIZE_ERROR("가 3자리 숫자가 아닙니다."),
     HAS_ZERO_ERROR("에 1~9 사이가 아닌 숫자가 포함되었습니다."),
     DUPLICATED_ERROR("에 중복된 숫자가 존재합니다."),
-    NO_MATCH_RESULT_ERROR("해당하는 조건의 결과가 없습니다.")
+    NO_MATCH_RESULT_ERROR("해당하는 조건의 결과가 없습니다."),
+    WRONG_RESTART_NUMBER_ERROR("가 1 또는 2가 아닙니다.")
     ;
 
     private final String message;
@@ -22,6 +24,10 @@ public enum ErrorMessage {
 
     public String getPlayerMessage() {
         return String.format(ERROR_HEADER.message, PLAYER_TITLE.message, this.message);
+    }
+
+    public String getRestartMessage() {
+        return String.format(ERROR_HEADER.message, RESTART_TITLE.message, this.message);
     }
 
     public String getMessage() {
