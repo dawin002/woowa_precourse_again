@@ -35,7 +35,7 @@ class PlayerNumbersTest {
         // when then
         assertThatThrownBy(() -> new PlayerNumbers(numbers))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(PLAYER_ERROR_TITLE.getTitle() + WRONG_SIZE_ERROR.getMessage());
+                .hasMessage("[ERROR] 입력된 숫자가 3자리 숫자가 아닙니다.");
     }
 
     @DisplayName("숫자 중 0이 포함된 경우 예외 처리")
@@ -47,7 +47,7 @@ class PlayerNumbersTest {
         // when then
         assertThatThrownBy(() -> new PlayerNumbers(numbers))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(PLAYER_ERROR_TITLE.getTitle() + HAS_ZERO_ERROR.getMessage());
+                .hasMessage("[ERROR] 입력된 숫자에 1~9 사이가 아닌 숫자가 포함되었습니다.");
     }
 
     @DisplayName("중복된 숫자가 존재하는 경우 예외 처리")
@@ -59,7 +59,7 @@ class PlayerNumbersTest {
         // when then
         assertThatThrownBy(() -> new PlayerNumbers(numbers))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(PLAYER_ERROR_TITLE.getTitle() + DUPLICATED_ERROR.getMessage());
+                .hasMessage("[ERROR] 입력된 숫자에 중복된 숫자가 존재합니다.");
     }
 
 }
