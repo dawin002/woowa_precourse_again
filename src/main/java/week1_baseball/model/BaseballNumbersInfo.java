@@ -1,6 +1,6 @@
 package week1_baseball.model;
 
-public enum NumberInfo {
+public enum BaseballNumbersInfo {
     NUMBERS_SIZE(3),
     NUMBER_RANGE_START(1),
     NUMBER_RANGE_END(9),
@@ -8,7 +8,7 @@ public enum NumberInfo {
 
     private final int number;
 
-    NumberInfo(int number) {
+    BaseballNumbersInfo(int number) {
         this.number = number;
     }
 

@@ -6,7 +6,7 @@ import week1_baseball.model.PlayerNumbers;
 
 import java.util.List;
 
-import static week1_baseball.model.NumberInfo.NUMBERS_SIZE;
+import static week1_baseball.model.BaseballNumbersInfo.NUMBERS_SIZE;
 
 public class BaseballGameService {
     private ComputerNumbers computerNumbers;

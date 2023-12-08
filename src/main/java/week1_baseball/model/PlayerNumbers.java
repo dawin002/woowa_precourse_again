@@ -5,8 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 
 import static week1_baseball.message.ErrorMessage.*;
-import static week1_baseball.model.NumberInfo.NUMBERS_SIZE;
-import static week1_baseball.model.NumberInfo.NUMBER_ZERO;
+import static week1_baseball.model.BaseballNumbersInfo.NUMBERS_SIZE;
+import static week1_baseball.model.BaseballNumbersInfo.NUMBER_ZERO;
 
 public class PlayerNumbers {
     private final List<Integer> numbers;

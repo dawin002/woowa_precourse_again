@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
-import static week1_baseball.model.NumberInfo.*;
+import static week1_baseball.model.BaseballNumbersInfo.*;
 
 public class NumberGenerator {
 
