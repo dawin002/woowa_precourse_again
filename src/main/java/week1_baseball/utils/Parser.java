@@ -8,7 +8,7 @@ public class Parser {
     private static final String ERROR_MESSAGE_CAN_NOT_PARSE_INTEGER = "입력된 값에 숫자가 아닌 값이 있습니다.";
 
     public static List<Integer> stringToIntList(String input) {
-        validateInput(input);
+        validateInputNumbers(input);
         String[] splitInput = input.split("");
         List<Integer> numbers = new ArrayList<>();
         for (String number : splitInput) {
@@ -17,17 +17,32 @@ public class Parser {
         return numbers;
     }
 
-    private static void validateInput(String input) {
+    public static int stringToInt(String input) {
+        validateInputNumber(input);
+        return Integer.parseInt(input);
+    }
+
+    private static void validateInputNumbers(String input) {
         if (input.isEmpty() || input.isBlank()) {
             throw new IllegalArgumentException(ERROR_MESSAGE_INPUT_EMPTY);
         }
-        if (canNotParseInteger(input))
+        if (canNotParseInteger(input)) {
             throw new IllegalArgumentException(ERROR_MESSAGE_CAN_NOT_PARSE_INTEGER);
         }
+    }
+
+    private static void validateInputNumber(String input) {
+        if (input.isEmpty() || input.isBlank()) {
+            throw new IllegalArgumentException(ERROR_MESSAGE_INPUT_EMPTY);
+        }
+        if (canNotParseInteger(input)) {
+            throw new IllegalArgumentException(ERROR_MESSAGE_CAN_NOT_PARSE_INTEGER);
+        }
+    }
 
     private static boolean canNotParseInteger(String input) {
         for (char number : input.toCharArray()) {
-            if ((int)'0' > (int)number || (int)'9' < (int)number) {
+            if ((int) '0' > (int) number || (int) '9' < (int) number) {
                 return true;
             }
         }
