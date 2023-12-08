@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static week1_baseball.message.ErrorMessage.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -34,7 +33,7 @@ class ComputerNumbersTest {
         // when then
         assertThatThrownBy(() -> new ComputerNumbers(givenNumbers))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(COMPUTER_ERROR_TITLE.getTitle() + WRONG_SIZE_ERROR.getMessage());
+                .hasMessage("[ERROR] 정답 숫자가 3자리 숫자가 아닙니다.");
     }
 
     @DisplayName("정답 숫자에 0이 포함된 경우 예외 처리")
@@ -46,7 +45,7 @@ class ComputerNumbersTest {
         // when then
         assertThatThrownBy(() -> new ComputerNumbers(givenNumbers))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(COMPUTER_ERROR_TITLE.getTitle() + HAS_ZERO_ERROR.getMessage());
+                .hasMessage("[ERROR] 정답 숫자에 1~9 사이가 아닌 숫자가 포함되었습니다.");
     }
 
     @DisplayName("정답 숫자에 중복이 존재하는 경우 예외 처리")
@@ -58,7 +57,7 @@ class ComputerNumbersTest {
         // when then
         assertThatThrownBy(() -> new ComputerNumbers(givenNumbers))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(COMPUTER_ERROR_TITLE.getTitle() + DUPLICATED_ERROR.getMessage());
+                .hasMessage("[ERROR] 정답 숫자에 중복된 숫자가 존재합니다.");
     }
 
 }
