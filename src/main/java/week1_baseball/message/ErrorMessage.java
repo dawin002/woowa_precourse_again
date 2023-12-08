@@ -23,10 +23,10 @@ public enum ErrorMessage {
     }
 
     public String getTitle() {
-        return String.format(ERROR_HEADER.message, this.message);
+        return ERROR_HEADER.message + this.message;
     }
 
     public String getMessage() {
-        return String.format(this.message);
+        return this.message;
     }
 }
