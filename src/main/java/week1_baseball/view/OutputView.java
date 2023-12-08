@@ -1,10 +1,12 @@
 package week1_baseball.view;
 
+import static week1_baseball.message.OutputMessage.GAME_END_MESSAGE;
+import static week1_baseball.message.OutputMessage.GAME_START_MESSAGE;
+
 public class OutputView {
-    private static final String GAME_START_MESSAGE = "숫자 야구 게임을 시작합니다.";
-    private static final String GAME_END_MESSAGE = "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
+
     public void printGameStartMessage() {
-        System.out.println(GAME_START_MESSAGE);
+        System.out.println(GAME_START_MESSAGE.getMessage());
     }
 
     public void printGameResult(String resultMessage) {
@@ -12,6 +14,6 @@ public class OutputView {
     }
 
     public void printGameEndMessage() {
-        System.out.println(GAME_END_MESSAGE);
+        System.out.println(GAME_END_MESSAGE.getMessage());
     }
 }
