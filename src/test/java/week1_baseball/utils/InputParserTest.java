@@ -9,14 +9,14 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-class ParserTest {
+class InputParserTest {
 
     @DisplayName("전달된 문자열을 정수 리스트로 변환해 반환")
     @ValueSource(strings = {"123", "246", "999"})
     @ParameterizedTest
     void parseStringToIntList(String input) {
         // given when
-        List<Integer> numbers = Parser.stringToIntList(input);
+        List<Integer> numbers = InputParser.stringToIntList(input);
 
         // then
         String[] splitInput = input.split("");
@@ -30,7 +30,7 @@ class ParserTest {
     @ParameterizedTest
     void validateInputEmpty(String input) {
         // given when then
-        assertThatThrownBy(() -> Parser.stringToIntList(input))
+        assertThatThrownBy(() -> InputParser.stringToIntList(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("입력된 값이 비어 있습니다.");
     }
@@ -40,7 +40,7 @@ class ParserTest {
     @ParameterizedTest
     void validateInputCanNotParseInteger(String input) {
         // given when then
-        assertThatThrownBy(() -> Parser.stringToIntList(input))
+        assertThatThrownBy(() -> InputParser.stringToIntList(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("입력된 값에 숫자가 아닌 값이 있습니다.");
     }

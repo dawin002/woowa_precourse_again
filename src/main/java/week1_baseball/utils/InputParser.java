@@ -5,12 +5,15 @@ import java.util.List;
 
 import static week1_baseball.message.ErrorMessage.*;
 
-public class Parser {
+public class InputParser {
 
+    private static final String SPLIT_REGEX = "";
+    private static final int ASCII_OF_CHAR_ZERO = 48;
+    private static final int ASCII_OF_CHAR_NINE = 57;
 
     public static List<Integer> stringToIntList(String input) {
         validateInputNumbers(input);
-        String[] splitInput = input.split("");
+        String[] splitInput = input.split(SPLIT_REGEX);
         List<Integer> numbers = new ArrayList<>();
         for (String number : splitInput) {
             numbers.add(Integer.parseInt(number));
@@ -47,7 +50,7 @@ public class Parser {
 
     private static boolean canNotParseInteger(String input) {
         for (char number : input.toCharArray()) {
-            if ((int) '0' > (int) number || (int) '9' < (int) number) {
+            if (ASCII_OF_CHAR_ZERO > (int) number || ASCII_OF_CHAR_NINE < (int) number) {
                 return true;
             }
         }
