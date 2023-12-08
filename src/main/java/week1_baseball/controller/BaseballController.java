@@ -23,6 +23,15 @@ public class BaseballController {
     }
 
     public void startGame() {
+        while (true) {
+            playGame();
+            if (!isRestart()) {
+                break;
+            }
+        }
+    }
+
+    private void playGame() {
         outputView.printGameStartMessage();
         gameService.setComputerNumbers(NumberGenerator.createUniqueNumbers());
         while (true) {
@@ -41,7 +50,7 @@ public class BaseballController {
         return InputParser.stringToIntList(input);
     }
 
-    public boolean checkRestart() {
+    private boolean isRestart() {
         GameRestarter gameRestarter = new GameRestarter(inputRestartNumber());
         return gameRestarter.isRestart();
     }
