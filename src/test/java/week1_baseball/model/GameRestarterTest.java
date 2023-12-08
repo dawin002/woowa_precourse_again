@@ -21,7 +21,7 @@ class GameRestarterTest {
         // when then
         assertThatThrownBy(() -> new GameRestarter(restartNumber))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(RESTART_ERROR_TITLE.getTitle() + WRONG_RESTART_NUMBER_ERROR.getMessage());
+                .hasMessage("[ERROR] 게임 재시작 숫자가 1 또는 2가 아닙니다.");
     }
 
     @DisplayName("입력된 재시작 숫자가 1이라면 true 반환")
